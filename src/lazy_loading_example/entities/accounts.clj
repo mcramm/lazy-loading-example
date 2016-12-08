@@ -12,10 +12,11 @@
   (update! [this status]))
 
 (defn sql->account [sql-entity]
-  #:account {:id (:id sql-entity)
-             :status (:status sql-entity)
-             :created-at (:created_at sql-entity)
-             :updated-at (:updated_at sql-entity)})
+  (when (:id sql-entity)
+    #:account {:id (:id sql-entity)
+               :status (:status sql-entity)
+               :created-at (:created_at sql-entity)
+               :updated-at (:updated_at sql-entity)}))
 
 (extend-protocol AccountOps
   Postgres
