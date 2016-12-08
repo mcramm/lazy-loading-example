@@ -11,12 +11,18 @@
   (create! [this status])
   (update! [this status]))
 
-(defn sql->account [sql-entitiy])
+(defn sql->account [sql-entity]
+  #:account {:id (:id sql-entity)
+             :status (:status sql-entity)
+             :created-at (:created_at sql-entity)
+             :updated-at (:updated_at sql-entity)})
 
 (extend-protocol AccountOps
   Postgres
   (by-id [store id]
-    (sql/account-by-id (:uri store) {:id id}))
+    (-> (sql/account-by-id (:uri store) {:id id})
+        sql->account))
+
   (create! [store status]
     (let [result (sql/insert-account! (:uri store) {:status status})]
       (by-id store (:id result)))))
