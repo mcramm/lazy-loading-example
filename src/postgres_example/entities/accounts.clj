@@ -36,6 +36,7 @@
     (sql/update-account! (:uri store) {:id (:account/id account)
                                        :status opened-status})
     (by-id store (:account/id account)))
+
   (set-closed! [store account]
     (sql/update-account! (:uri store) {:id (:account/id account)
                                        :status closed-status})
