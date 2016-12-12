@@ -9,7 +9,8 @@
 (defprotocol AccountOps
   (by-id [this id])
   (create! [this status])
-  (update! [this account]))
+  (set-opened! [this account])
+  (set-closed! [this account]))
 
 (defn sql->account [sql-entity]
   (when (:id sql-entity)
@@ -17,6 +18,9 @@
                :status (:status sql-entity)
                :created-at (:created_at sql-entity)
                :updated-at (:updated_at sql-entity)}))
+
+(def opened-status "open")
+(def closed-status "closed")
 
 (extend-protocol AccountOps
   Postgres
@@ -28,7 +32,11 @@
     (let [result (sql/insert-account! (:uri store) {:status status})]
       (by-id store (:id result))))
 
-  (update! [store account]
+  (set-opened! [store account]
     (sql/update-account! (:uri store) {:id (:account/id account)
-                                       :status (:account/status account)})
+                                       :status opened-status})
+    (by-id store (:account/id account)))
+  (set-closed! [store account]
+    (sql/update-account! (:uri store) {:id (:account/id account)
+                                       :status closed-status})
     (by-id store (:account/id account))))
