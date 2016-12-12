@@ -9,3 +9,11 @@ WHERE id = :id
 INSERT INTO accounts (status)
 VALUES (:status)
 RETURNING id
+
+-- :name update-account! :< :1
+-- :doc Updates an account by id
+UPDATE accounts
+SET status = :status,
+    updated_at = now()
+WHERE id = :id
+RETURNING id

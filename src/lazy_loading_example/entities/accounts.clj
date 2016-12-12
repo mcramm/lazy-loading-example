@@ -9,7 +9,7 @@
 (defprotocol AccountOps
   (by-id [this id])
   (create! [this status])
-  (update! [this status]))
+  (update! [this account]))
 
 (defn sql->account [sql-entity]
   (when (:id sql-entity)
@@ -26,4 +26,9 @@
 
   (create! [store status]
     (let [result (sql/insert-account! (:uri store) {:status status})]
-      (by-id store (:id result)))))
+      (by-id store (:id result))))
+
+  (update! [store account]
+    (sql/update-account! (:uri store) {:id (:account/id account)
+                                       :status (:account/status account)})
+    (by-id store (:account/id account))))
