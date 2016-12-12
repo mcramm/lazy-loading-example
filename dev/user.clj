@@ -2,7 +2,7 @@
   (:require [ragtime.repl]
             [ragtime.jdbc]
             [environ.core :refer [env]]
-            [lazy-loading-example.components.postgres :as postgres]
+            [postgres-example.components.postgres :as postgres]
             ))
 
 (def config

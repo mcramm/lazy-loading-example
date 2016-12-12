@@ -1,4 +1,4 @@
-# lazy-loading-example
+# postgres-example
 
 **WARNING!**
 
@@ -15,10 +15,10 @@ Make a database, export a DATABASE_URL variable, then launch a
 repl. Something like:
 
 ```
-    $ DATABASE_URL=postgresql://lazy_loading_example:secret@localhost:5432/lazy_loading_example lein repl
+    $ DATABASE_URL=postgresql://postgres_example:secret@localhost:5432/postgres_example lein repl
 ```
 Note that the above should work provided you've created a database and user
-called "lazy_loading_example", with the password "secret".
+called "postgres_example", with the password "secret".
 
 Once the repl has launched, you should be able to run `(migrate)` to set up the
 database. You can follow along at [https://mcramm.com](https://mcramm.com).

@@ -1,4 +1,4 @@
-(ns lazy-loading-example.core
+(ns postgres-example.core
   (:gen-class))
 
 (defn -main

@@ -1,4 +1,4 @@
-(defproject lazy-loading-example "0.1.0-SNAPSHOT"
+(defproject postgres-example "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
@@ -12,7 +12,7 @@
                   [com.layerware/hugsql "0.4.7"]
                   [org.clojure/java.jdbc "0.6.1"]]
   :plugins [[lein-environ "1.1.0"]]
-  :main ^:skip-aot lazy-loading-example.core
+  :main ^:skip-aot postgres-example.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}
              :dev [:project/dev]

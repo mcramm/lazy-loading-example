@@ -1,9 +1,9 @@
-(ns lazy-loading-example.entities.accounts
+(ns postgres-example.entities.accounts
   (:require [clj-time.jdbc]
 
-            [lazy-loading-example.sql :as sql]
-            [lazy-loading-example.components.postgres])
-  (:import [lazy_loading_example.components.postgres Postgres]))
+            [postgres-example.sql :as sql]
+            [postgres-example.components.postgres])
+  (:import [postgres_example.components.postgres Postgres]))
 
 
 (defprotocol AccountOps

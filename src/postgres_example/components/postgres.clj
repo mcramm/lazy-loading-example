@@ -1,4 +1,4 @@
-(ns lazy-loading-example.components.postgres)
+(ns postgres-example.components.postgres)
 
 (defrecord Postgres [uri])
 
