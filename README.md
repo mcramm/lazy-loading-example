@@ -21,7 +21,7 @@ Note that the above should work provided you've created a database and user
 called "postgres_example", with the password "secret".
 
 Once the repl has launched, you should be able to run `(migrate)` to set up the
-database. You can follow along at [https://mcramm.com](https://mcramm.com).
+database. You can follow along at [https://mcramm.com](http://mcramm.com/post/off-the-ground-with-clojure-and-postgres/).
 
 ## License
 
