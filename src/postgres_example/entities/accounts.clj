@@ -5,7 +5,6 @@
             [postgres-example.components.postgres])
   (:import [postgres_example.components.postgres Postgres]))
 
-
 (defprotocol AccountOps
   (by-id [this id])
   (create! [this status])

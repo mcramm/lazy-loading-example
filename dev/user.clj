@@ -2,8 +2,8 @@
   (:require [ragtime.repl]
             [ragtime.jdbc]
             [environ.core :refer [env]]
-            [postgres-example.components.postgres :as postgres]
-            ))
+            [eftest.runner :as eftest]
+            [postgres-example.components.postgres :as postgres]))
 
 (def config
   {:datastore (ragtime.jdbc/sql-database (env :database-url))
@@ -23,3 +23,7 @@
 
 (defn create-store []
   (postgres/build (env :database-url)))
+
+(defn test []
+  (let [path "test/postgres_example/integration"]
+    (eftest/run-tests (eftest/find-tests path))))

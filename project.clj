@@ -16,7 +16,7 @@
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}
              :dev [:project/dev]
-             :project/dev {:dependencies []
+             :project/dev {:dependencies [[eftest "0.1.2"]]
                            :resource-paths ["resources/"]
                            :source-paths ["dev"]
                            :repl-options {:init-ns user}}})
